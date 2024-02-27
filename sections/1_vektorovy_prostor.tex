@@ -1,0 +1,193 @@
+\section{Obecný vektorový prostor}
+
+\subsection*{Grupa}
+
+Nechť $M$ je neprázdná množina a $\circ: M \times M \to M$ binární operace.
+Platí-li
+
+\begin{enumerate}
+    \item \textbf{asociativní zákon}: $(\forall a,b,c \in M) \big(a \circ (b \circ c) = (a \circ b) \circ c \big)$,
+    \item existence \textbf{neutrálního prvku}: existuje $e \in M$ tak, že $(\forall a
+              \in M) \big( a \circ e = e \circ a = a \big)$,
+    \item existence \textbf{inverzních prvků}: $(\forall a \in M)(\exists a^{-1}\in M)
+              \big(a \circ a^{-1} = a^{-1} \circ a = e\big)$,
+\end{enumerate}
+
+říkáme, že uspořádaná dvojice $G = (M, \circ)$ je \textbf{grupa}.
+
+Platí-li navíc pro $\circ$
+
+\begin{itemize}
+    \item \textbf{komutativní zákon}: $(\forall a,b \in M) \big(a \circ b = b \circ a\big)$,
+\end{itemize}
+
+mluvíme o \textbf{abelovské grupě}.
+
+\subsection*{Těleso}
+
+Nechť $M$ je neprázdná množina a $+: M \times M \to M$, $\cdot : M \times M \to
+    M$ dvě binární operace. Platí-li, že
+
+\begin{enumerate}
+    \item $(M, +)$ je \textbf{abelovská grupa} (neutrální prvek značíme $0$ a nazýváme nulovým prvkem),
+    \item $(M\setminus \{0\}, \cdot)$ je grupa (neutrální prvek značíme $1$ a nazýváme jednotkový prvek),
+    \item platí levý a pravý \textbf{distributivní zákon}, tj.
+
+          \[ (\forall a,b,c \in M) \Big( a(b + c) = ab + ac \wedge (b+c)a = ba + ca\Big)\,, \]
+\end{enumerate}
+
+nazýváme uspořádanou trojici $T = (M, +, \cdot)$ \textbf{tělesem}.
+
+Je-li navíc $(M\setminus \{0\}, \cdot)$ abelovská grupa, je $T$
+\textbf{komutativní těleso}.
+
+\subsection*{Vektorový prostor}
+
+Nechť $T$ je libovolné komutativní těleso, jeho neutrální prvky vůči operacím
+sčítání, resp. násobení označme $0$, resp. $1$. Mějme dánu neprázdnou množinu
+$V$ a dvě zobrazení
+
+\[ \oplus: V\times V\to V,\qquad \odot:T\times V\to V\,. \]
+
+Řekneme, že $(V,T,\oplus,\odot)$ je \textbf{vektorový prostor nad tělesem} $T$ s vektorovými operacemi $\oplus$ a $\odot$, právě když platí následující \textbf{axiomy vektorového prostoru}:
+
+\begin{enumerate}
+    \item Sčítání vektorů je komutativní:
+
+          \[ (\forall \vx,\vy\in V)(\vx\oplus \vy=\vy\oplus\vx)\,. \]
+
+    \item Sčítání vektorů je asociativní:
+
+          \[ (\forall \vx,\vy,\vz\in V)\big((\vx\oplus \vy)\oplus \vz=\vx\oplus(\vy\oplus \vz)\big)\,. \]
+
+    \item Násobení skalárem je asociativní:
+
+          \[ (\forall\alpha,\beta\in T)(\forall \vx\in V) \big(\alpha\odot(\beta\odot \vx)=(\alpha\cdot\beta)\odot \vx \big)\,. \]
+
+    \item Násobení skalárem je distributivní zleva:
+
+          \[ (\forall\alpha\in T) (\forall \vx,\vy\in V) \big(\alpha\odot(\vx\oplus \vy)=(\alpha\odot \vx)\oplus(\alpha\odot \vy)\big)\,. \]
+
+    \item Násobení skalárem je distributivní zprava:
+
+          \[ (\forall\alpha,\beta\in T)(\forall \vx\in V) \big((\alpha+\beta)\odot \vx=(\alpha\odot \vx)\oplus(\beta\odot \vx)\big)\,. \]
+
+    \item Neutrální prvek $1\in T$ je neutrální i vůči násobení vektoru skalárem:
+
+          \[ (\forall \vx\in V) (1\odot \vx=\vx)\,. \]
+
+    \item Existuje \textbf{nulový vektor} ve $V$ a nulový násobek libovolného vektoru je
+          nulový vektor
+
+          \[ (\exists\theta\in V) (\forall \vx\in V) (0\odot \vx=\theta)\,.\]
+
+\end{enumerate}
+
+\subsection*{Základní vlastnosti VP}
+
+Buď $V$ vektorový prostor nad tělesem $T$. Potom platí:
+
+\begin{enumerate}
+    \item Ve $V$ existuje právě jeden nulový vektor.
+    \item Libovolný násobek nulového vektoru je opět nulový vektor. Tj.
+          \[ (\forall \alpha\in T) (\alpha\odot\theta=\theta)\,. \]
+    \item Přičtení nulového vektoru k libovolnému vektoru jej nezmění. Tj.
+          \[ (\forall \vx\in V) (\vx \oplus \theta=\vx)\,. \]
+
+    \item Ke každému vektoru z $V$ existuje právě jeden \textbf{vektor opačný}. Tzn.,
+
+          \[ (\forall \vx\in V)(\exists_{1} \vy\in V)( \vx\oplus\vy=\theta)\,. \]
+          Tento vektor splňuje $\vy= (-1)\odot \vx$, kde $-1$ je opačný prvek k $1$ vůči
+          operaci $+$ v $T$.
+    \item Je-li součin skaláru a vektoru roven nulovému vektoru, potom je skalár roven
+          $0$ nebo vektor roven $\theta$.
+
+          \[ (\forall \alpha \in T) (\forall \vx \in V)  \Big(\alpha\odot  \vx=\theta \Rightarrow (\alpha=0 \vee \vx=\theta)\Big)\,. \]
+\end{enumerate}
+
+\subsection*{Podprostor}
+
+Nechť $P$ je podmnožina vektorového prostoru $\color{blue}{V}$ nad $T$.
+Řekneme, že $P$ je \textbf{podprostor} vektorového prostoru $\color{blue}{V}$,
+právě když platí:
+
+\begin{enumerate}
+    \item množina $P$ je neprázdná, tzn. $P\neq \emptyset.$
+    \item množina $P$ je \emph{uzavřená} vůči sčítání vektorů v ní, tzn.
+
+          \[ (\forall \vx,\vy\in P)(\vx+\vy\in P)\,, \]
+
+    \item Množina $P$ je uzavřená vůči násobení vektorů v ní libovolným skalárem, tzn.
+
+          \[ (\forall\alpha\in T)(\forall \vx\in P) (\alpha \vx\in P)\,. \]
+
+\end{enumerate}
+
+Vztah být podprostorem pak značíme
+
+\[ P\subset \subset \color{blue}{V}. \]
+
+\subsection*{(Triviální) lineární kombinace}
+
+Mějme vektorový prostor $\color{blue}{V}$ nad $T$. Nechť $\vx\in
+    \color{blue}{V}$ a $(\vx_{1},\dots,\vx_{m})$ je soubor vektorů z
+$\color{blue}{V}$. Říkáme, že vektor $\vx$ je \textbf{lineární kombinací}
+souboru $(\vx_{1},\dots,\vx_{m})$, právě když existují čísla
+$\alpha_{1},\dots,\alpha_{m}\in T$ taková, že
+
+\[ \vx=\sum_{i=1}^{m}\alpha_{i}\vx_{i}\,. \]
+
+Čísla $\alpha_{i}$, $i\in\hat{m}$, nazýváme \textbf{koeficienty lineární kombinace}.
+Jestliže $(\forall i\in\hat{m})(\alpha_{i}=0)$, nazýváme takovou lineární kombinaci \textbf{triviální}.
+V opačném případě jde o \textbf{lineární kombinaci netriviální}.
+
+\subsection*{Lineárně (ne)závislý soubor}
+
+\begin{itemize}
+    \item $(\vx_{1},\dots,\vx_{m})$ je LN $\Leftrightarrow$
+          \[ (\forall \alpha_{1},\dots,\alpha_{m}\in T)\left(\,\sum_{i=1}^{m}\alpha_{i}\vx_{i}=\theta \Rightarrow \big((\forall i\in\hat{m})(\alpha_{i}=0)\big)\,\right)\,. \]
+    \item $(\vx_{1},\dots,\vx_{m})$ je LZ $\Leftrightarrow$
+          \[ (\exists \alpha_{1},\dots,\alpha_{m}\in T) (\exists k\in\hat{m})
+              \left(\,\alpha_{k}\neq0 \wedge \,\sum_{i=1}^{m}\alpha_{i}\vx_{i}=\theta\,\right)\,.
+          \]
+\end{itemize}
+
+\subsection*{Lineární obal souboru}
+
+Buď $(\vx_{1},\dots,\vx_{m})$ soubor vektorů z VP $V$ nad tělesem $T$. Množinu
+všech lineárních kombinací tohoto souboru nazveme \textbf{lineárním obalem
+    souboru} $(\vx_{1},\dots,\vx_{m})$ a značíme ji
+
+\[ \langle  \vx_{1},\dots,\vx_{m}  \rangle . \]
+
+\noindent Neboli
+
+\[ \langle  \vx_{1},\dots,\vx_{m}  \rangle = \left\{\sum_{i=1}^m \alpha_i \vx_i \ \Big|\ \alpha_i\in T \text{ pro každé }i \in \hat m \right\}\,. \]
+
+\subsection*{Vlastnosti lineární obalu souboru}
+
+Nechť $(\vx_1,\ldots,\vx_m)$ je soubor vektorů z vektorového prostoru $V$ nad
+$T$. Pak platí:
+
+\begin{enumerate}
+    \item lineární obal obsahuje nulový vektor:
+          \[ \theta\in \langle \vx_1,\ldots,\vx_m \rangle , \]
+    \item vektory leží ve svém lineárním obalu, přesněji:
+          \[ \vx_1,\ldots,\vx_m  \in  \langle \vx_1,\ldots,\vx_m \rangle\,, \]
+    \item je-li vektor již obsažen v lineárním obalu, tak jeho přidáním do souboru se
+          lineární obal nezmění:
+
+          \[ (\forall \vz\in V)\Big(\vz\in\langle \vx_1,\ldots,\vx_m \rangle   \quad \Leftrightarrow \quad \langle  \vx_1,\ldots,\vx_m  \rangle =\langle  \vx_1,\ldots,\vx_m,\vz  \rangle\Big)\,, \]
+
+    \item lineární obal je uzavřený na sčítání vektorů i na násobení vektorů skalárem:
+          \begin{gather*}
+              (\forall\vx,\vy\in\langle  \vx_1,\ldots,\vx_m \rangle)\big(\vx+\vy\in\langle \vx_1,\ldots,\vx_m \rangle\big)\\
+              \quad\text{a}\quad\\
+              (\forall\alpha\in T)(\forall\vx\in\langle \vx_1,\ldots,\vx_m \rangle)\big(\alpha \vx\in\langle \vx_1,\ldots,\vx_m \rangle\big) .
+          \end{gather*}
+    \item lineární obal z lineárního obalu neobsahuje nic navíc:
+          \begin{gather*}
+              \text{Je-li } k\in \N \text{ a } \vz_1,\dots, \vz_k\in\langle  \vx_1,\ldots,\vx_m \rangle\,,\text{ potom }\\
+              \langle  \vz_1,\ldots,\vz_k  \rangle \text{ je podmnožinou } \langle  \vx_1,\ldots,\vx_m \rangle\,.
+          \end{gather*}
+\end{enumerate}
