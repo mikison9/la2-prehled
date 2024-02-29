@@ -253,6 +253,45 @@ O souboru vektorů $(\vx_1,\dots,\vx_m)$ z vektorového prostoru $V$ řekneme, �
 
 \[ \langle \vx_1,\dots,\vx_m \rangle =P. \]
 
-V případě, že $P=V$ můžeme zjednodušeně říkat $(\vx_1,\dots,\vx_m)$ generuje
+\noindent V případě, že $P=V$ můžeme zjednodušeně říkat $(\vx_1,\dots,\vx_m)$ generuje
 (vektorový) prostor $V$.
 
+\subsection*{Dimenze VP}
+
+Buď $V$ vektorový prostor. Řekneme, že \textbf{dimenze vektorového prostoru}
+$V$ je rovna
+
+\begin{itemize}
+      \item $\mathbf 0$, pokud neexistuje LN soubor vektorů z $V$ délky $1$.
+      \item $\mathbf d\in \N$, pokud existuje LN soubor vektorů z $V$ délky $d$, ale každý soubor vektorů z $V$ délky $d+1$ už je LZ.
+      \item $\color{blue}{\boldsymbol{\infty}}$, pokud ve $V$ existuje LN soubor libovolné délky.
+\end{itemize}
+
+\noindent Dimenzi vektorového prostoru $V$ označujeme symbolem $\dim V$.
+
+\noindent Je-li $\color{blue}{\dim V = \infty}$, říkáme, že $V$ má \textbf{nekonečnou
+      dimenzi}, naopak pokud $\color{blue}{\dim V < \infty}$ říkáme, že $V$
+\textbf{má konečnou dimenzi}.
+
+\subsection*{Věta o postačitelnosti jedné vlastnosti báze}
+
+Nechť $(\vx_1,\dots,\vx_d)$ je soubor vektorů z VP $V$ a $\dim V=d\in\N$. Potom
+následující tvrzení jsou ekvivalentní:
+
+\begin{enumerate}
+      \item Soubor $(\vx_1,\dots,\vx_d)$ je báze $V$.
+      \item Soubor $(\vx_1,\dots,\vx_d)$ je LN.
+      \item Soubor $(\vx_1,\dots,\vx_d)$ generuje $V$.
+\end{enumerate}
+
+\subsection*{Souřadnice vzhledem k bázi}
+
+Nechť $\mathcal B=(\vx_1,\dots,\vx_d)$ je báze VP $V$ nad tělesem $T$ a vektor $\vv\in V$ splňuje
+
+    \[ \vv=\sum_{i=1}^{d}\alpha_{i}\vx_{i}\,. \]
+
+  \textbf{Souřadnicemi vektoru $\vv\in V$ vzhledem k bázi $\mathcal B$} nazveme uspořádanou $d$-tici
+
+    \[ (\vv)_\mathcal B:=(\alpha_1,\dots,\alpha_d)\in T^{d}\,. \]
+
+\pagebreak
