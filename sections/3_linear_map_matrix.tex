@@ -1,0 +1,65 @@
+\section{Matice lineárního zobrazení}
+
+\subsection*{Matice zobrazení vzhledem k bázím}
+
+Nechť $A\in\mathcal L(P,Q)$, buď $\mathcal X=(\vx_1,\dots,\vx_n)$ báze $P$ a
+$\mathcal Y=(\vy_1,\dots,\vy_m)$ báze $Q$. Matici ${}^{\mathcal X}A^{\mathcal
+    Y}\in T^{m,n}$ definovanou po sloupcích předpisem $\forall i\in \hat{n}:$
+
+\[ \left({}^{\mathcal X}A^{\mathcal Y}\right)_{:i}:=(A\,\vx_{i})_\mathcal Y, \]
+
+\noindent nazveme \textbf{maticí zobrazení $A$ vzhledem k bázím} $\mathcal X$, $\mathcal Y$.
+
+\noindent Je-li $A\in \mathcal L(P)$ lineární operátor, jeho matici zobrazení
+${}^{\mathcal X}A^{\mathcal X}$ můžeme zkráceně značit ${}^{\mathcal X}A$.
+
+\subsection*{Věta o matici složeného zobrazení}
+
+Nechť $A\in\mathcal L(Q,V)$, $B\in\mathcal L(P,Q)$ a $\mathcal X, \mathcal Y,
+    \mathcal{W}$ jsou popořadě báze $P, Q, V$ vektorových prostorů konečné dimenze.
+Potom pro matici složeného zobrazení $AB\in\mathcal L(P,V)$ platí
+
+\[ {}^{\mathcal X}(AB)^{\mathcal{W}}={}^{\mathcal Y}A^{\mathcal{W}}\cdot{}^{\mathcal X}B^{\mathcal Y}\ . \]
+
+\subsection*{Věta o matici izomorfismu}
+
+Je-li $A\in\mathcal L(P,Q)$ izomorfismus, $\dim P, \dim Q < \infty$, $\mathcal
+    X$ je báze $P$ a $\mathcal Y$ je báze $Q$, potom je matice ${}^{\mathcal
+            X}A^{\mathcal Y}$ regulární a platí
+
+\[ \left({}^{\mathcal X}A^{\mathcal Y}\right)^{-1}={}^{\mathcal Y}(A^{-1})^{\mathcal X}\,. \]
+
+\subsection*{Věta o souvislosti hodnosti zobrazení a jeho matice}
+
+Nechť $A\in\mathcal L(P,Q)$, $\dim P,Q < \infty$, $\mathcal X$ je báze $P$ a
+$\mathcal Y$ je báze $Q$. Potom platí
+
+\[ h(A)=h\left({}^{\mathcal X}A^{\mathcal Y}\right)\,. \]
+
+\subsection*{Matice přechodu mezi bázemi}
+
+Nechť $\mathcal X=(\vx_1,\dots,\vx_n)$ a $\mathcal Y=(\vy_1,\dots,\vy_n)$ jsou
+báze $P$. Matici identického operátoru ${}^{\mathcal X}E^{\mathcal Y}\in
+    T^{n,n}$ nazýváme \textbf{maticí přechodu} od báze $\mathcal X$ k bázi
+$\mathcal Y$.
+
+\subsection*{Věta o vlastnostech matice přechodu}
+
+Nechť $\mathcal X$, $\mathcal Y$ a $\mathcal{Z}$ jsou báze $P$, $\dim P <
+    \infty$. Potom
+
+\begin{enumerate}
+    \item pro libovolné $\vx\in P$ platí
+
+          \[ {}^\mathcal X E^\mathcal Y\cdot(\vx)_\mathcal X =(\vx)_\mathcal Y\,, \]
+
+    \item matice ${}^\mathcal X E^\mathcal Y$ je regulární a platí
+
+          \[ \left({}^\mathcal X E^\mathcal Y\right)^{-1}= {}^\mathcal Y E^\mathcal X\,, \]
+
+    \item
+
+          \[ {}^\mathcal Y E^\mathcal{Z}\cdot{}^\mathcal X E^\mathcal Y={}^\mathcal X E^\mathcal{Z}\,. \]
+\end{enumerate}
+
+\pagebreak
