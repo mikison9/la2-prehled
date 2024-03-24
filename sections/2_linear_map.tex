@@ -6,22 +6,22 @@ Buďte $P$ a $Q$ dva vektorové prostory nad stejným tělesem $T$. Zobrazení
 $A:P\rightarrow Q$ nazveme \textbf{lineární}, právě když současně platí:
 
 \begin{enumerate}
-    \item (aditivita):
+      \item (aditivita):
 
-          \begin{equation*}
-              (\forall \vx,\vy\in P)( A(\vx+\vy)=A\vx+A\vy)\,,
-          \end{equation*}
-    \item (homogenita):
+            \begin{equation*}
+                  (\forall \vx,\vy\in P)( A(\vx+\vy)=A\vx+A\vy)\,,
+            \end{equation*}
+      \item (homogenita):
 
-          \begin{equation*}
-              (\forall \alpha\in T)( \forall \vx \in P) \big(A(\alpha \vx)=\alpha A\vx\big)\,.
-          \end{equation*}
+            \begin{equation*}
+                  (\forall \alpha\in T)( \forall \vx \in P) \big(A(\alpha \vx)=\alpha A\vx\big)\,.
+            \end{equation*}
 \end{enumerate}
 
 \subsection*{Lineární operátor (transformace), funkcionál a izomorfismus}
 
 Lineární zobrazení z VP $P$ do stejného VP $P$ nazýváme \textbf{lineární
-    operátor} (nebo také \textbf{transformace}) na $P$.
+      operátor} (nebo také \textbf{transformace}) na $P$.
 
 \vspace{0.5em}
 
@@ -44,22 +44,22 @@ Přiřazení $(\cdot)_{\mathcal B}:V\to T^n$ definované předpisem
 
 \noindent kde $(\vx)_{\mathcal B}$ značí souřadnice vektoru $\vx$ vůči bázi $\mathcal B$
 dle Definice .reference:dfn-souradnice, nazýváme \textbf{souřadnicový
-    izomorfismus}.
+      izomorfismus}.
 
 \subsection*{Alternativní vyjádření linearity}
 
 Buďte $P$ a $Q$ vektorové prostory nad $T$ a mějme zobrazení $A:P\rightarrow
-    Q$. Následující tři tvrzení jsou ekvivalentní:
+      Q$. Následující tři tvrzení jsou ekvivalentní:
 
 \begin{enumerate}
-    \item $A\in\mathcal L(P,Q)$.
-    \item $(\forall \alpha\in T)(\forall \vx,\vy\in P)$
+      \item $A\in\mathcal L(P,Q)$.
+      \item $(\forall \alpha\in T)(\forall \vx,\vy\in P)$
 
-          \[ \left(A(\alpha \vx+ \vy)=\alpha A\vx+ A\vy\right)\,. \]
+            \[ \left(A(\alpha \vx+ \vy)=\alpha A\vx+ A\vy\right)\,. \]
 
-    \item $(\forall n\in\mathbb{N})(\forall \alpha_{1},\dots,\alpha_{n}\in T)(\forall \vx_{1},\dots, \vx_{n}\in P)$
+      \item $(\forall n\in\mathbb{N})(\forall \alpha_{1},\dots,\alpha_{n}\in T)(\forall \vx_{1},\dots, \vx_{n}\in P)$
 
-          \[ \bigg(A\left(\sum_{i=1}^{n}\alpha_{i}\vx_{i}\right)=\sum_{i=1}^{n}\alpha_{i}A\vx_{i}\bigg)\,. \]
+            \[ \bigg(A\left(\sum_{i=1}^{n}\alpha_{i}\vx_{i}\right)=\sum_{i=1}^{n}\alpha_{i}A\vx_{i}\bigg)\,. \]
 
 \end{enumerate}
 
@@ -68,33 +68,33 @@ Buďte $P$ a $Q$ vektorové prostory nad $T$ a mějme zobrazení $A:P\rightarrow
 Nechť $A\in\mathcal L(P,Q)$, kde $P,Q$ jsou vektorové prostory nad $T$.
 
 \begin{enumerate}
-    \item \emph{Obraz nulového vektoru je nulový vektor:}  Označíme-li nulové vektory v $P$ a $Q$ popořadě $\theta_P$ a $\theta_Q$, platí
+      \item \emph{Obraz nulového vektoru je nulový vektor:}  Označíme-li nulové vektory v $P$ a $Q$ popořadě $\theta_P$ a $\theta_Q$, platí
 
-          \[ A\theta_P=\theta_Q\,. \]
+            \[ A\theta_P=\theta_Q\,. \]
 
-    \item \emph{Obraz lineárního obalu je lineární obal obrazu:} Je-li $M\subseteq P$, potom
+      \item \emph{Obraz lineárního obalu je lineární obal obrazu:} Je-li $M\subseteq P$, potom
 
-          \[ A\big(\langle M\rangle \big)=\big\langle A(M)\big\rangle \,. \]
+            \[ A\big(\langle M\rangle \big)=\big\langle A(M)\big\rangle \,. \]
 
-          Je-li $(\vx_1,\dots,\vx_n)$ soubor vektorů z $P$ , potom
+            Je-li $(\vx_1,\dots,\vx_n)$ soubor vektorů z $P$ , potom
 
-          \[ A\big(\langle \vx_1,\dots,\vx_n\rangle \big)=\langle A\vx_1,\dots,A\vx_n\rangle \,. \]
+            \[ A\big(\langle \vx_1,\dots,\vx_n\rangle \big)=\langle A\vx_1,\dots,A\vx_n\rangle \,. \]
 
-    \item \emph{Obraz podprostoru je podprostor.} Neboli
+      \item \emph{Obraz podprostoru je podprostor.} Neboli
 
-          \[ \big(\forall \tilde{P}\ssubset P\big) \big(A(\tilde{P})\ssubset Q\big)\,. \]
+            \[ \big(\forall \tilde{P}\ssubset P\big) \big(A(\tilde{P})\ssubset Q\big)\,. \]
 
-    \item \emph{Vzor podprostoru je podprostor.} Neboli
+      \item \emph{Vzor podprostoru je podprostor.} Neboli
 
-          \[ \big(\forall \tilde{Q}\ssubset Q\big) \big(A^{-1}(\tilde{Q})\ssubset P\big)\,. \]
+            \[ \big(\forall \tilde{Q}\ssubset Q\big) \big(A^{-1}(\tilde{Q})\ssubset P\big)\,. \]
 
-    \item \emph{Obraz LZ souboru je opět LZ soubor.} Neboli pro libovolný soubor $(\vx_1,\dots,\vx_n)$ platí
+      \item \emph{Obraz LZ souboru je opět LZ soubor.} Neboli pro libovolný soubor $(\vx_1,\dots,\vx_n)$ platí
 
-          \[ (\vx_1,\dots,\vx_n)\text{ je } LZ \implies (A\vx_1,\dots,A\vx_n)\text{ je } LZ. \]
+            \[ (\vx_1,\dots,\vx_n)\text{ je } LZ \implies (A\vx_1,\dots,A\vx_n)\text{ je } LZ. \]
 
-    \item \emph{``Předobraz'' LN souboru je opět LN soubor.} Přesněji pro libovolný soubor $(\vx_1,\dots,\vx_n)$ platí
+      \item \emph{``Předobraz'' LN souboru je opět LN soubor.} Přesněji pro libovolný soubor $(\vx_1,\dots,\vx_n)$ platí
 
-          \[ (A\vx_1,\dots,A\vx_n)\text{ je } LN \implies (\vx_1,\dots,\vx_n)\text{ je } LN. \]
+            \[ (A\vx_1,\dots,A\vx_n)\text{ je } LN \implies (\vx_1,\dots,\vx_n)\text{ je } LN. \]
 
 \end{enumerate}
 
@@ -112,6 +112,11 @@ Nechť $A\in\mathcal L(P,Q)$. \textbf{Hodností zobrazení} $A$ rozumíme čísl
 
 \[ d(A):=\dim \ker A\,. \]
 
+\subsection*{2. věta o dimenzi}
+
+Nechť $A\in\mathcal L(P,Q)$. Potom
+\[ h(A)+d(A)=\dim P. \]
+
 \subsection*{Věta o jádru prostého zobrazení}
 
 Nechť $A\in\mathcal L(P,Q)$. Potom platí:
@@ -123,11 +128,11 @@ Nechť $A\in\mathcal L(P,Q)$. Potom platí:
 Nechť $A\in\mathcal L(P,Q)$ je \textbf{prosté}. Potom
 
 \begin{enumerate}
-    \item Obraz LN souboru vektorů je taky LN soubor. Tedy je-li $(\vx_1,\dots,\vx_n)$ LN
-          soubor vektorů z $P$, je také $(A\vx_1,\dots,A\vx_n)$ LN.
-    \item Vzor LZ souboru vektorů je opět LZ. Neboli: je-li $(\vx_1,\dots,\vx_n)$ soubor
-          vektorů z $P$ takový že $(A\vx_1,\dots,A\vx_n)$ je LZ soubor, potom také soubor
-          vzorů $(\vx_1,\dots,\vx_n)$ LZ.
+      \item Obraz LN souboru vektorů je taky LN soubor. Tedy je-li $(\vx_1,\dots,\vx_n)$ LN
+            soubor vektorů z $P$, je také $(A\vx_1,\dots,A\vx_n)$ LN.
+      \item Vzor LZ souboru vektorů je opět LZ. Neboli: je-li $(\vx_1,\dots,\vx_n)$ soubor
+            vektorů z $P$ takový že $(A\vx_1,\dots,A\vx_n)$ je LZ soubor, potom také soubor
+            vzorů $(\vx_1,\dots,\vx_n)$ LZ.
 \end{enumerate}
 
 \subsection*{Lineární zobrazení a zachování dimenze}
@@ -135,9 +140,9 @@ Nechť $A\in\mathcal L(P,Q)$ je \textbf{prosté}. Potom
 Mějme $A\in \mathcal L(P,Q)$ a $M$ podprostor VP $P$. Potom
 
 \begin{enumerate}
-    \item $\dim A(M) \leq \dim M$.
-    \item Je-li $A$ prosté zobrazení, potom $\dim A(M) = \dim M$.
-    \item $h(A)\leq \min \{\dim P, \dim Q\}\,.$
+      \item $\dim A(M) \leq \dim M$.
+      \item Je-li $A$ prosté zobrazení, potom $\dim A(M) = \dim M$.
+      \item $h(A)\leq \min \{\dim P, \dim Q\}\,.$
 \end{enumerate}
 
 \pagebreak
