@@ -1,0 +1,149 @@
+\section{Geometrie $\mathbb{R}^n$}
+
+\subsection*{Vzdálenost množin}
+
+Pro dvě množiny $M$ a $N$ z $\R^n$ definujeme \textbf{vzdálenost} $M$ od $N$ předpisem
+
+\[ d(M,N):=\inf \big\{\|\vx-\vy\|\mid \vx\in M,\ \vy\in N\big\}\,. \]
+
+\subsection*{Ortogonální doplněk}
+
+Je-li $M\subseteq \R^n$, potom definujeme tzv. \textbf{ortogonální doplněk} (značíme $M^\perp$) jako množinu vektorů kolmých na všechny vektory z $M$, tj.
+
+\[ M^{\perp}:=\big\{\vx\in \R^n\mid (\forall \vv\in M)(\vx\centerdot \vv=0)\big\}\,. \]
+
+\subsection*{Věta o vzdálenosti a kolmici}
+
+Mějme vektor $\vx$ a podprostor $P$ v $\R^n$. Existují-li vektory $\vv\in P$ a $\vw\in P^\perp$ takové, že $\vx=\vv+\vw$, potom
+
+\[ d(\vx,P)=\|\vw\|\,. \]
+
+\subsection*{O vlastnostech ortogonálního doplňku}
+
+Je-li $P$ podprostor $\R^n$, potom platí následující.
+
+\begin{enumerate}
+	\item  $P^\perp$ je podprostor v $\R^n$.
+	\item $P\cap P^\perp=\{\theta\}$.
+	\item Každý vektor z $\R^n$ lze zapsat jako součet vektoru z $P$ a vektoru z $P^\perp$, neboli
+	
+	\[ (\forall \vx\in \R^n)(\exists \vv\in P)(\exists \vw\in P^\perp)(\vx=\vv+\vw)\,. \]
+	\item Rozklad vektoru na součet vektorů z $P$ a $P^\perp$ je jednoznačný, neboli
+	
+	\begin{gather*}
+		(\forall \vx\in \R^n)(\forall \vv,\tilde \vv \in P)(\forall \vw, \tilde \vw \in P^\perp)\\
+		\Big((\vv+\vw=\vx=\tilde \vv+\tilde \vw)\Rightarrow \big(\vv=\tilde \vv \wedge \vw=\tilde \vw\big)\Big)\,.
+	\end{gather*}
+	
+\end{enumerate}
+
+\begin{proof}[Důkaz]
+	Viz cvičení 5.4 a 5.6.
+\end{proof}
+
+\subsection*{Ortogonální projekce na podprostor}
+
+Je-li soubor $(\vy_1,\dots,\vy_k)$ OG báze podprostoru $P$ z $\R^n$, potom definujeme \textbf{ortogonální projekci na podprostor} $P$ předpisem:
+
+\begin{equation*}
+	\proj_P(\vz):=\proj_{\vy_1}(\vz)+\dots +\proj_{\vy_k}(\vz) \text{ pro }\vz\in \R^n\,.
+\end{equation*}
+
+\subsection*{Věta o vzdálenosti variet}
+
+Mějme variety $M=\va+\langle \vx_1,\dots,\vx_k\rangle$ a $N=\vb+\langle\vy_1,\dots,\vy_\ell\rangle$, potom
+
+\[ d(M,N)=d\big(\va-\vb,\langle \vx_1,\dots,\vx_k,\vy_1,\dots,\vy_\ell\rangle\big)\,. \]
+
+\subsection*{Rovnoběžné, různoběžné, mimoběžné variety}
+
+Máme-li dvě variety $W$ a $U$, potom řekneme, že tyto variety jsou
+
+\begin{enumerate}
+	\item \textbf{rovnoběžné}, pokud $Z(W)\subseteq Z(U)$ nebo $Z(U)\subseteq Z(W)$,
+	\item \textbf{různoběžné}, pokud nejsou rovnoběžné a $W\cap U\neq \emptyset$,
+	\item \textbf{mimoběžné}, pokud nejsou rovnoběžné a $W\cap U= \emptyset$.
+\end{enumerate}
+
+\subsection*{Úhel mezi vektory}
+
+Jsou-li $\vx$, $\vy$ nenulové vektory, potom \textbf{úhlem vektorů} $\vx,\vy\in \R^n$ nazýváme číslo
+\[ \arccos\frac{\vx\centerdot \vy}{\|\vx\|\|\vy\|}. \]
+
+\subsection*{Úhel mezi přímkami a nadrovinami}
+
+Máme-li dvě přímky $p=\va + \langle \vu \rangle$, $q=\vb+\langle \vv \rangle$ a dvě nadroviny $P$ s normálovým vektorem $\mathbf n_P$ a $Q$ s normálovým vektorem $\mathbf n_Q$, potom definujeme \textbf{úhel mezi}
+
+\begin{enumerate}
+	\item \textbf{přímkami} $p$ a $q$ jako
+	\[ \arccos\frac{|\vu\centerdot \vv|}{\|\vu\|\|\vv\|}. \]
+	\item  \textbf{přímkou} $p$ a \textbf{nadrovinou} $P$ jako
+	\[ \frac{\pi}{2}-\arccos\frac{|\vu\centerdot \mathbf n_P|}{\|\vu\|\|\mathbf n_P\|}. \]
+	\item \textbf{nadrovinami} $P$, $Q$ jako
+	\[ \arccos\frac{|\mathbf n_P\centerdot \mathbf n_Q|}{\|\mathbf n_P\|\|\mathbf n_Q\|}. \]
+\end{enumerate}
+
+\subsection*{Translace (posunutí) o vektor}
+
+Máme-li vektor $\vu\in \R^n$, potom zobrazení: Pro $\vx\in \R^n$ položíme
+\[ T_\vu(\vx)= \vx+\vu\, \]
+nazýváme \textbf{translací} o vektor $\vu $.
+
+\subsection*{Afinní transformace}
+
+\textbf{Afinní transformace} jsou zobrazení ve tvaru
+\[T\,:\, \vx\mapsto A\vx+\vu \quad \text{ pro } \vx\in \R^n,\]
+kde $A$ je nějaký lineární operátor z $\mathcal L(\R^n)$ a $\vu$ vektor z $\R^n$.
+
+\subsection*{Homogenní souřadnice}
+
+Je-li $\vx=(x_1,\dots,x_n)$ vektor z $\R^n$, potom $(x_1,\dots,x_n,1)\in \R^{n+1}$ nazýváme \textbf{homogenní souřadnice} vektoru $\vx$.
+
+\subsection*{Matice translace}
+
+Translace o vektor $\vu  = (u_1, u_2)$, resp. $\vu  = (u_1, u_2, u_3)$, lze reprezentovat pomocí matic
+\[ T_{\vu } =
+\begin{pmatrix}
+	1 & 0 & u_1 \\
+	0 & 1 & u_2 \\
+	0 & 0 & 1
+\end{pmatrix}
+\quad \text{resp.} \quad
+T_{\vu } =
+\begin{pmatrix}
+	1 & 0 & 0 & u_1 \\
+	0 & 1 & 0 & u_2 \\
+	0 & 0 & 1 & u_3 \\
+	0 & 0 & 0 & 1
+\end{pmatrix}\,. \]
+
+\subsection*{Rotace}
+
+Pro rotace o úhel $\varphi$ v $\R^2$ je matice rotace s homogenní souřadnicí rovna
+\[ R_\varphi =
+\begin{pmatrix}
+	\cos\varphi &-\sin\varphi & 0\\
+	\sin\varphi & \cos\varphi  & 0 \\
+	0 & 0 & 1
+\end{pmatrix}\,. \]
+
+\subsection*{Škálování}
+
+Škálování znamená prosté násobení jednotlivých souřadnic číslem. Škálovací matice vypadají takto
+\[ S_{(\alpha, \beta)} =
+\begin{pmatrix}
+	\alpha & 0 & 0 \\
+	0 & \beta & 0 \\
+	0 & 0 & 1
+\end{pmatrix}
+\quad \text{resp.} \quad
+S_{(\alpha, \beta, \gamma)} =
+\begin{pmatrix}
+	\alpha & 0 & 0 & 0 \\
+	0 & \beta & 0 & 0 \\
+	0 & 0 & \gamma & 0 \\
+	0 & 0 & 0 & 1
+\end{pmatrix}. \]
+
+
+\pagebreak
