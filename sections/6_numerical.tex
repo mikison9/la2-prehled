@@ -2,7 +2,9 @@
 
 \subsection*{Přidružená (indukovaná) maticová norma}
 
-Mějme normu $\| \cdot \|_{(n)}$ na $\R^n$ a normu $\| \cdot \|_{(m)}$ na $\R^m$, definujeme \textbf{přidruženou (indukovanou) maticovou normu} matice $\mA \in \R^{m,n}$ následujícím způsobem
+Mějme normu $\| \cdot \|_{(n)}$ na $\R^n$ a normu $\| \cdot \|_{(m)}$ na
+$\R^m$, definujeme \textbf{přidruženou (indukovanou) maticovou normu} matice
+$\mA \in \R^{m,n}$ následujícím způsobem
 
 \begin{equation*}
 	\| \mA\| := \sup_{\substack{\vx \in \R^{n} \\ \vx \neq \theta}} \frac{ \|\mA\vx\|_{(m)} }{\|\vx\|_{(n)}}\,.
@@ -13,16 +15,19 @@ Mějme normu $\| \cdot \|_{(n)}$ na $\R^n$ a normu $\| \cdot \|_{(m)}$ na $\R^m$
 Zobrazení definované v předchozí definici je normou a platí pro ni
 
 \begin{enumerate}
-	\item Je-li $m=n$ a zvolené normy jsou stejné, potom $\|\mE\| = 1$ (zde $\mE$ je jednotková matice),
+	\item Je-li $m=n$ a zvolené normy jsou stejné, potom $\|\mE\| = 1$ (zde $\mE$ je
+	      jednotková matice),
 	\item $\|\mA\vx\|_{(m)} \leq \|\mA\| \cdot \|\vx\|_{(n)}$ (konzistence normy),
 	\item $\|\mA\mB\| \leq \|\mA\| \cdot \|\mB\|$.
 \end{enumerate}
 
 \subsection*{(Přidružená) maticová $p$-norma}
 
-Pokud v definici maticové normy uvažujeme na $\R^n$ i $\R^m$ odpovídající $p$-normy, nazýváme tuto normu přidruženou (indukovanou) \textbf{maticovou $p$-normou} a značíme ji $\|\mA\|_p$. Tedy
+Pokud v definici maticové normy uvažujeme na $\R^n$ i $\R^m$ odpovídající
+$p$-normy, nazýváme tuto normu přidruženou (indukovanou) \textbf{maticovou
+	$p$-normou} a značíme ji $\|\mA\|_p$. Tedy
 \[\| \mA\|_p = \sup_{\substack{\vx \in \R^{n} \\ \vx \neq \theta}}  \frac{\left\|\mA \vx\right\|_{p} }{\|\vx\|_{p}}
-= \sup_{\substack{\vz \in \R^{n} \\ \|\vz\|_{p} = 1}} \|\mA\vz\|_{p}.\]
+	= \sup_{\substack{\vz \in \R^{n} \\ \|\vz\|_{p} = 1}} \|\mA\vz\|_{p}.\]
 
 \subsection*{Věta o speciálních případech přidružené maticové normy}
 
@@ -30,10 +35,12 @@ Mějme matici $\mA$ z $\R^{m,n}$, která má složky $a_{ij}$, potom
 
 \begin{enumerate}
 	\item Norma $\| \mA \|_{1}$ je rovna maximu součtu absolutních hodnot ve sloupci, tj.
-	\[ \| \mA \|_{1} = \max_{1 \leq j \leq n} \sum_{i = 1}^m |a_{i,j}|\,. \]
-	\item Norma $\| \mA \|_{\infty}$ je rovna maximu součtu absolutních hodnot v řádku, tj.
-	\[ \| \mA \|_{\infty} = \max_{1 \leq i \leq m} \sum_{j = 1}^n |a_{i,j}|\,. \]
-	\item Norma $\| \mA \|_{2}$ je rovna odmocnině z největšího vlastního čísla matice $\mA^T\mA$ i matice $\mA\mA^T$.
+	      \[ \| \mA \|_{1} = \max_{1 \leq j \leq n} \sum_{i = 1}^m |a_{i,j}|\,. \]
+	\item Norma $\| \mA \|_{\infty}$ je rovna maximu součtu absolutních hodnot v řádku,
+	      tj.
+	      \[ \| \mA \|_{\infty} = \max_{1 \leq i \leq m} \sum_{j = 1}^n |a_{i,j}|\,. \]
+	\item Norma $\| \mA \|_{2}$ je rovna odmocnině z největšího vlastního čísla matice
+	      $\mA^T\mA$ i matice $\mA\mA^T$.
 \end{enumerate}
 
 \subsection*{Frobeniova norma}
@@ -51,7 +58,7 @@ Mějme matici $\mA$ z $\R^{m,n}$, která má složky $a_{ij}$, potom
 
 \textbf{Relativní číslo podmíněnosti} úlohy je
 \[ \kappa = \lim_{r \to 0+} \sup_{ \| \Delta x \| \leq r}
-\left({ \dfrac {\| \Delta y \| }{\|y\|}} \Big/ { \dfrac{ \|\Delta x\| }{\|x\|}}\right). \]
+	\left({ \dfrac {\| \Delta y \| }{\|y\|}} \Big/ { \dfrac{ \|\Delta x\| }{\|x\|}}\right). \]
 
 \subsection*{Číslo podmíněnosti matice}
 
@@ -61,16 +68,21 @@ se nazývá \textbf{číslo podmíněnosti matice} $\mA$ vhledem k normě $\|\cd
 
 \subsection*{Věta o podmíněnosti řešení soustavy lineárních rovnic}
 
-Mějme matici $\mA \in \R^{n,n}$. Změníme-li vektor pravé strany soustavy lineárních rovnic $\vb$ o $\Delta \vb$, pro změnu řešení $\Delta \vx$ platí
+Mějme matici $\mA \in \R^{n,n}$. Změníme-li vektor pravé strany soustavy
+lineárních rovnic $\vb$ o $\Delta \vb$, pro změnu řešení $\Delta \vx$ platí
 \[ \frac{\| \Delta \vx \|}{\| \vx \|} \leq \kappa(\mA) \frac{\| \Delta \vb \|}{\| \vb \|}. \]
 
 \subsection*{Stabilita algoritmů}
 
-Nechť $V$ je nějaký numerický algoritmus, jehož teoretický (přesný) výstup označíme $V^*(x)$, kde $x$ jsou vstupní data. Výsledek výpočtu v konečné (strojové) aritmetice označíme $V(x)$.
-Označme $\Delta y = V^*(x) - V(x)$.
+Nechť $V$ je nějaký numerický algoritmus, jehož teoretický (přesný) výstup
+označíme $V^*(x)$, kde $x$ jsou vstupní data. Výsledek výpočtu v konečné
+(strojové) aritmetice označíme $V(x)$. Označme $\Delta y = V^*(x) - V(x)$.
 
-Tato hodnota je tzv. \emph{dopředná/přímá chyba} (anglicky \emph{forward error}). Je to odchylka spočítaného řešení od přesného řešení.
+Tato hodnota je tzv. \emph{dopředná/přímá chyba} (anglicky \emph{forward
+	error}). Je to odchylka spočítaného řešení od přesného řešení.
 
-Nejmenší (v normě) číslo $\Delta x$ takové, že $V^*(x + \Delta x) = V(x)$ se nazývá \emph{zpětná chyba} (anglicky \emph{backward error}). Jedná se o promítnutí chyby algoritmu $V$ do jeho vstupu.
+Nejmenší (v normě) číslo $\Delta x$ takové, že $V^*(x + \Delta x) = V(x)$ se
+nazývá \emph{zpětná chyba} (anglicky \emph{backward error}). Jedná se o
+promítnutí chyby algoritmu $V$ do jeho vstupu.
 
 \pagebreak

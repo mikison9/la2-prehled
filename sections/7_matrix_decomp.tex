@@ -2,24 +2,30 @@
 
 \subsection*{LU rozklad}
 
-Mějme matici $\mA\in T^{m,m}$. Pokud existuje dolní trojúhelníková matice $\mL$ s jedničkami na diagonále a horní trojúhelníková matice $\mU$, takové že $\mA=\mL\mU$, nazýváme tento součin \textbf{LU rozkladem}.
+Mějme matici $\mA\in T^{m,m}$. Pokud existuje dolní trojúhelníková matice $\mL$
+s jedničkami na diagonále a horní trojúhelníková matice $\mU$, takové že
+$\mA=\mL\mU$, nazýváme tento součin \textbf{LU rozkladem}.
 
 \subsection*{LU rozklad s řádkovou pivotací}
 
 Zápis matice $\mA \in T^{m,m}$ jako součin
 \[ \mP\mA = \mL\mU, \]
-kde $\mP$ je nějaká permutační matice, $\mL$ dolní trojúhelníková matice s jedničkami na diagonále a $\mU$ horní trojúhelníková matice nazýváme \textbf{LU rozkladem s řádkovou pivotací}.
+kde $\mP$ je nějaká permutační matice, $\mL$ dolní trojúhelníková matice s
+jedničkami na diagonále a $\mU$ horní trojúhelníková matice nazýváme \textbf{LU
+	rozkladem s řádkovou pivotací}.
 
 \subsection*{LU rozklad s částečnou pivotací}
 
 LU rozklad s řádkovou pivotací matice $\mA \in \R^{m,m}$
 \[ \mP\mA = \mL\mU, \]
-nazveme \textbf{LU rozkladem s částečnou pivotací}, pokud pro všechna $i \geq j$ z $\hat m$ platí
+nazveme \textbf{LU rozkladem s částečnou pivotací}, pokud pro všechna $i \geq
+	j$ z $\hat m$ platí
 \[ |\mL_{ij}|\leq 1\,. \]
 
 \subsection*{Matice s ortonormálními sloupci}
 
-Matici $\mQ\in\R^{m,n}$, $m \ge n$, nazýváme \textbf{maticí s ortonormálními sloupci}, pokud platí
+Matici $\mQ\in\R^{m,n}$, $m \ge n$, nazýváme \textbf{maticí s ortonormálními
+	sloupci}, pokud platí
 \[ \mQ^T\mQ = \mE_n, \]
 kde $\mE_n$ je jednotková matice z $\R^{n,n}$, neboli
 \[ \mQ_{:i}^T\mQ_{:j} = \begin{cases} 0 & \text{ pro } i \neq j, \\ 1 & \text{ pro } i = j. \end{cases} \]
@@ -31,24 +37,26 @@ kde $\mE_n$ je jednotková matice z $\R^{n,n}$, neboli
 
 \subsection*{Transpozice ortogonální matice}
 
-Je-li $\mQ$ ortogonální matice, je její transpozice $\mQ^T$ také ortogonální matice.
-
+Je-li $\mQ$ ortogonální matice, je její transpozice $\mQ^T$ také ortogonální
+matice.
 
 \begin{proof}[Důkaz]
-	Z vlastnosti ortogonální matice a transpozice platí 
+	Z vlastnosti ortogonální matice a transpozice platí
 	\[ \mE=\mQ\mQ^T = \left(\mQ^T\right)^T\mQ^T  \text{ a } \mE=\mQ^T\mQ = \mQ^T\left(\mQ^T\right)^T. \]
-	Tedy $\left(\mQ^T\right)^{-1}=\left(\mQ^T\right)^T$, a proto je $\mQ^T$ dle definice také ortogonální.
+	Tedy $\left(\mQ^T\right)^{-1}=\left(\mQ^T\right)^T$, a proto je $\mQ^T$ dle
+	definice také ortogonální.
 \end{proof}
 
 \subsection*{Součin ortogonálních matic}
 
-Pro ortogonální matice $\mQ_1, \mQ_2, \ldots, \mQ_k \in \R^{n,n}, n,k \in \N$, platí, že jejich součin je opět ortogonální matice, neboli
+Pro ortogonální matice $\mQ_1, \mQ_2, \ldots, \mQ_k \in \R^{n,n}, n,k \in \N$,
+platí, že jejich součin je opět ortogonální matice, neboli
 \[ (\mQ_1\mQ_2 \cdots \mQ_k)^T\mQ_1\mQ_2 \cdots \mQ_k = \mE. \]
 
 \begin{proof}[Důkaz]
-Tvrzení plyne z vlastnosti ortogonálních matic a z faktu, že transpozice součinu matic je součin transpozic těchto matic, ale v obráceném pořadí:
-\[ (\mQ_1\mQ_2 \cdots\mQ_k)^T = \mQ_k^T\mQ_{k-1}^T \cdots\mQ_1^T\,. \]
-Z toho a z vlastností ortogonálních matic získáváme
+	Tvrzení plyne z vlastnosti ortogonálních matic a z faktu, že transpozice součinu matic je součin transpozic těchto matic, ale v obráceném pořadí:
+	\[ (\mQ_1\mQ_2 \cdots\mQ_k)^T = \mQ_k^T\mQ_{k-1}^T \cdots\mQ_1^T\,. \]
+	Z toho a z vlastností ortogonálních matic získáváme
 	\begin{gather*}
 		(\mQ_1\mQ_2 \cdots\mQ_k)^T\mQ_1\mQ_2 \cdots\mQ_k = \mQ_k^T \cdots\mQ_2^T\mQ_1^T\mQ_1\mQ_2 \cdots\mQ_k = \\
 		\mQ_k^T \cdots\mQ_2^T(\mQ_1^T\mQ_1)\mQ_2 \cdots\mQ_k =
@@ -58,7 +66,8 @@ Z toho a z vlastností ortogonálních matic získáváme
 
 \subsection*{Ortogonální matice zachovávají standardní skalární součin}
 
-Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každé dva vektory $\vx, \vy \in \R^n$ platí
+Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každé dva vektory $\vx,
+	\vy \in \R^n$ platí
 \[ (\mQ\vx)^T(\mQ\vy) = \vx^T \vy. \]
 
 \begin{proof}[Důkaz]
@@ -68,7 +77,8 @@ Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každé dva vektory $\vx,
 
 \subsection*{Ortogonální matice zachovávají eukleidovskou normu}
 
-Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každý vektor $\vx \in \R^n$ platí
+Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každý vektor $\vx \in
+	\R^n$ platí
 \[ \| \mQ\vx\|_2 = \|\vx\|_2. \]
 
 \begin{proof}[Důkaz]
@@ -84,26 +94,27 @@ Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro její determinant platí
 \begin{proof}[Důkaz]
 	Důkaz plyne z vlastností determinantu součinu matic a transponované matice při aplikaci determinantu na obě strany rovnice ON matic,
 	\begin{align*}
-		\det \left( \mQ^T \mQ \right) &= \det \left(\mE \right),\\
-		\det \left( \mQ^T \right) \det \left( \mQ \right) &= 1,\\
-		\det \left(\mQ \right) \det \left(\mQ \right) &= 1,\\
-		\left(\det \left(\mQ \right) \right)^2 &= 1,\\
-		\det \left(\mQ \right) &= \pm 1.
+		\det \left( \mQ^T \mQ \right)                     & = \det \left(\mE \right), \\
+		\det \left( \mQ^T \right) \det \left( \mQ \right) & = 1,                      \\
+		\det \left(\mQ \right) \det \left(\mQ \right)     & = 1,                      \\
+		\left(\det \left(\mQ \right) \right)^2            & = 1,                      \\
+		\det \left(\mQ \right)                            & = \pm 1.
 	\end{align*}
 \end{proof}
 
 \subsection*{Vlastní čísla ortogonální matice}
 
-Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každé její vlastní číslo $\lambda$ platí
+Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každé její vlastní číslo
+$\lambda$ platí
 \[ |\lambda| = 1. \]
 
 \begin{proof}[Důkaz]
 	Důkaz plyne z Tvrzení o normě OG matic a homogenity násobení skalárním číslem použitého na rovnici pro vlastní čísla,
 	\begin{align*}
-		\mQ \vx &= \lambda \vx,\\
-		\|\mQ \vx\|_2 &= \|\lambda \vx\|_2,\\
-		\|\vx\|_2 &= |\lambda| \|\vx\|_2,\\
-		1 &= |\lambda|.
+		\mQ \vx       & = \lambda \vx,         \\
+		\|\mQ \vx\|_2 & = \|\lambda \vx\|_2,   \\
+		\|\vx\|_2     & = |\lambda| \|\vx\|_2, \\
+		1             & = |\lambda|.
 	\end{align*}
 \end{proof}
 
@@ -111,44 +122,53 @@ Je-li $\mQ \in \R^{n,n}$ ortogonální matice, pak pro každé její vlastní č
 
 Mějme $m\geq n$ a matici $\mA \in \R^{m,n}$. Zápis této matice jako součin
 \[ \mA = \hat{\mQ}\hat{\mR}, \]
-kde $\hat{\mQ} \in \R^{m,n}$ je matice s ortonormálními sloupci a $\hat{\mR} \in \R^{n,n}$ je horní trojúhelníková matice, nazýváme \textbf{redukovaný QR rozklad}.
+kde $\hat{\mQ} \in \R^{m,n}$ je matice s ortonormálními sloupci a $\hat{\mR}
+	\in \R^{n,n}$ je horní trojúhelníková matice, nazýváme \textbf{redukovaný QR
+	rozklad}.
 
 \subsection*{Úplný QR rozklad}
 
 Mějme $m\geq n$ a matici $\mA \in \R^{m,n}$. Její zápis jako součin
 \[ \mA = \mQ \mR, \]
-kde $\mQ \in \R^{m,m}$ je ortogonální matice a $\mR \in \R^{m,n}$ je horní trojúhelníková matice, nazýváme \textbf{úplný (kompletní) QR rozklad}.
+kde $\mQ \in \R^{m,m}$ je ortogonální matice a $\mR \in \R^{m,n}$ je horní
+trojúhelníková matice, nazýváme \textbf{úplný (kompletní) QR rozklad}.
 
 \subsection*{Věta o existenci QR rozkladu}
 
-Každá matice $\mA \in \R^{m,n} (m \ge n)$ má úplný QR rozklad a tedy i redukovaný QR rozklad.
+Každá matice $\mA \in \R^{m,n} (m \ge n)$ má úplný QR rozklad a tedy i
+redukovaný QR rozklad.
 
 \subsection*{Věta o jednoznačnosti QR rozkladu}
 
-Každá matice $\mA \in \R^{m,n} (m \ge n)$ s lineárně nezávislými sloupci má jednoznačný redukovaný QR rozklad $\mA=\hat{\mQ}\hat{\mR}$ splňující $r_{jj} > 0$.
+Každá matice $\mA \in \R^{m,n} (m \ge n)$ s lineárně nezávislými sloupci má
+jednoznačný redukovaný QR rozklad $\mA=\hat{\mQ}\hat{\mR}$ splňující $r_{jj} >
+	0$.
 
 \subsection*{Pozitivně definitní matice}
 
-Mějme $\mA \in \R^{n,n}$.
-Řekneme, že matice $\mA$ je \textbf{pozitivně definitní}, pokud
+Mějme $\mA \in \R^{n,n}$. Řekneme, že matice $\mA$ je \textbf{pozitivně
+	definitní}, pokud
 \[ \vx^T \mA \vx > 0 \quad \forall \vx \in \R^{n}, \vx \neq \theta. \]
 
 \subsection*{Pozitivně semidefinitní matice}
 
-Mějme $\mA \in \R^{n,n}$.
-Řekneme, že matice $\mA$ je \textbf{pozitivně semidefinitní}, pokud
+Mějme $\mA \in \R^{n,n}$. Řekneme, že matice $\mA$ je \textbf{pozitivně
+	semidefinitní}, pokud
 \[ \vx^T \mA \vx \geq 0 \quad \forall \vx \in \R^{n}. \]
 
 \subsection*{Symetrické matice}
 
-Matice $\mA \in \R^{n,n}$ je \textbf{symetrická}, jestliže je rovna svojí transpozici, tedy $\mA^T = \mA$.
+Matice $\mA \in \R^{n,n}$ je \textbf{symetrická}, jestliže je rovna svojí
+transpozici, tedy $\mA^T = \mA$.
 
 \subsection*{Věta o symetrických maticích}
 
 Buď $\mS \in \R^{n,n}$ symetrická matice. Potom platí následující:
 \begin{enumerate}
-	\item Matice $\mS$ je diagonalizovatelná a navíc lze vlastní vektory volit tak, že tvoří ortonormální bázi. Jinými slovy: existuje ortogonální matice $\mQ$ a diagonální matice $\mD$ tak, že
-	\[ \mS = \mQ\mD\mQ^T. \]
+	\item Matice $\mS$ je diagonalizovatelná a navíc lze vlastní vektory volit tak, že
+	      tvoří ortonormální bázi. Jinými slovy: existuje ortogonální matice $\mQ$ a
+	      diagonální matice $\mD$ tak, že
+	      \[ \mS = \mQ\mD\mQ^T. \]
 	\item Všechna vlastní čísla matice $\mS$ jsou reálná.
 	\item Je-li matice $\mS$ pozitivně semidefinitní, jsou vlastní čísla nezáporná.
 	\item Je-li matice $\mS$ pozitivně definitní, jsou vlastní čísla kladná.
