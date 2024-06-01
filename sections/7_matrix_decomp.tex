@@ -133,6 +133,15 @@ Mějme $m\geq n$ a matici $\mA \in \R^{m,n}$. Její zápis jako součin
 kde $\mQ \in \R^{m,m}$ je ortogonální matice a $\mR \in \R^{m,n}$ je horní
 trojúhelníková matice, nazýváme \textbf{úplný (kompletní) QR rozklad}.
 
+\subsection*{Souvislost QR rozkladu a GSO}
+
+\begin{equation*}
+	  \pmat{c|c|c|c}{ &     &       &     \\ &     &       &     \\ \va_1 & \va_2 & \dots & \va_n \\ &     &       &     \\ &     &       & }
+	=
+	\pmat{c|c|c|c}{ &     &       &     \\ &     &       &     \\ \vq_1 & \vq_2 & \dots & \vq_n \\ &     &       &     \\ &     &       & }
+	\pmat{cccc}{ r_{11} & r_{12} & \dots  & r_{1n} \\ & r_{22} & \dots  & r_{2n} \\ &        & \ddots & \vdots \\ &        &        & r_{nn} }\,.
+\end{equation*}
+
 \subsection*{Věta o existenci QR rozkladu}
 
 Každá matice $\mA \in \R^{m,n} (m \ge n)$ má úplný QR rozklad a tedy i
@@ -143,6 +152,163 @@ redukovaný QR rozklad.
 Každá matice $\mA \in \R^{m,n} (m \ge n)$ s lineárně nezávislými sloupci má
 jednoznačný redukovaný QR rozklad $\mA=\hat{\mQ}\hat{\mR}$ splňující $r_{jj} >
 	0$.
+
+\subsection*{Householderova triangularizace}
+
+Máme-li QR rozklad
+
+\[ \mA = \mQ\mR, \]
+
+\noindent tak vlastně platí
+
+\[ \mQ^T \mA = \mR, \]
+
+\noindent Chceme najít ortogonální matice $\mQ_1, \mQ_2, \ldots, \mQ_k$, které postupně zvyšují počet nul pod diagonálou:
+
+\[
+\underset{\mA}{ \left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \end{array}} \right) }
+\xrightarrow{\mQ_1}
+\underset{\mQ_1 \mA}{ \left({\begin{array}{*{20}c} \bullet  & \bullet  & \bullet  \\ \mathbf{0}  & \bullet  & \bullet  \\ \mathbf{0}  & \bullet  & \bullet  \\ \mathbf{0}  & \bullet  & \bullet  \\ \mathbf{0}  & \bullet  & \bullet  \\ \end{array}} \right) }
+\xrightarrow{\mQ_2}
+\underset{\mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ \mathbf{0}  & \bullet  & \bullet  \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ \end{array}} \right) }
+\xrightarrow{\mQ_3}
+\underset{\mQ_3 \mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ 0       & \circ    & \circ    \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ \mathbf{0}  & \mathbf{0}  & \mathbf{0}  \\ \mathbf{0}  & \mathbf{0}  & \mathbf{0}  \\ \end{array}} \right) }\,.
+\] 
+
+\subsection*{Householderův reflektor}
+
+Hledaná ortogonální matice zachová prvních $k-1$ řádků, bude mít tvar
+
+\[ \mQ_k = \left({ \begin{array}{*{20}c} \mE_{k-1}  &    \\ &  \mF \\ \end{array}} \right). \]
+
+\noindent Označme si sloupec matice od diagonály dolů, který chceme vynulovat, jako $\vx$.
+Hledáme $\mF$ tak, aby
+
+\[ \vx = \left({ \begin{array}{*{20}c} x_{k}   \\ x_{k+1} \\ \vdots  \\ x_{n}   \\ \end{array}} \right)
+\quad
+\xrightarrow{\mF}
+\quad
+\mF \vx = \left({ \begin{array}{*{20}c} \|\vx\| \\ 0 \\ \vdots \\ 0 \\ \end{array}} \right) = \|\vx\| \ve_1. 
+\]
+
+\noindent Rozdíl těchto vektorů označme jako
+
+\[ \vv = \|\vx\|\ve_1 -\vx. \]
+
+\noindent Definujme podprostor $H$ jako ortogonální doplněk vektoru $\vv$. Projekci $\vx$ na přímku určenou vektorem $\vv$ získáme vzorečkem
+
+\[ \proj_{\vv}\vx = \frac{\vx^T \vv}{\vv^T \vv} \vv \]
+
+\noindent a projekci na podprostor $H$
+
+\[ \proj_{H}\vx = \vx - \proj_{\vv} \vx = \vx - \frac{\vx^T \vv}{\vv^T \vv} \vv = \vx -\vv \frac{\vv^T \vx}{\vv^T \vv} = \left(\mE - \frac{\vv\vv^T }{\vv^T \vv}\right)\vx. \]
+
+\noindent Pokud chceme získat zrcadlení, projekci na vektor $\vv$ musíme odečíst dvakrát, tedy
+
+\[ \mF\vx = \vx - 2\proj_{\vv} \vx = \vx - 2\frac{\vx^T \vv}{\vv^T \vv} \vv = \vx -2\vv \frac{\vv^T \vx}{\vv^T \vv} = \left(\mE - 2\frac{\vv\vv^T }{\vv^T \vv}\right)\vx. \]
+
+\noindent Hledaná matice zrcadlení tedy bude
+
+\[ \mF = \mE - \clr{blue}{2}\frac{\vv\vv^T }{\vv^T \vv}. \]
+
+\noindent To ale není jediná možnost, jak sloupec vynulovat.
+Druhá možnost odpovídá zobrazení vektoru $\vx$ na vektor $-\|\vx\|\ve_1$.
+Druhý reflektor je tedy
+
+\[ \vw = - \|\vx\|\ve_1 - \vx. \]
+
+\noindent Z důvodu numerické chyby vybereme ten, který bude mít větší délku, jako
+
+\[ \vv = - \sgn(x_1) \|\vx\|\ve_1 - \vx \]
+
+\noindent Konečně si uvědomme, že na orientaci nezáleží, a zbavíme se tak znaménka
+
+\[ \vv = \sgn(x_1) \|\vx\|\ve_1 + \vx \]
+
+\begin{figure*}[ht]
+	\centering
+	\begin{tikzpicture}
+    % x-axis
+\draw (-3,0) -- (3,0);
+% y-axis
+\draw (0,-1) -- (0,2);
+% vector x, angle 40 degs
+\draw[vector] (0,0) -- ({2*cos(40)},{2*sin(40)}) node[anchor=south east] {$\vx$};
+% mirror axis, angle 20 degs
+\draw[mirror] ({-3*cos(20)},{-3*sin(20)}) node[anchor=south west,yshift = 2pt,xshift = -5pt] {$H^+$} -- ({3*cos(20)},{3*sin(20)});
+% mirror axis, angle 110 degs
+\draw[mirror] ({-1*cos(110)},{-1*sin(110)}) node[anchor=south west,yshift = 5pt,xshift = -3pt] {$H^-$} -- ({2*cos(110)},{2*sin(110)});
+% Householder reflector
+\draw[vector,blue] ({2*cos(40)},{2*sin(40)}) -- (2,0) node[anchor=south west,yshift = 8pt,xshift = -5pt] {$\vv$};
+% 2nd Householder reflector
+\draw[vector,blue] ({2*cos(40)},{2*sin(40)}) -- (-2,0) node[anchor=south west,yshift = 12pt,xshift = 20pt] {$\vw$};
+% target vector
+\draw[vector] (0,0) -- (2,0) node[anchor=north west,xshift = -15pt] {$+\|\vx\|\ve_1$};
+% second target vector
+\draw[vector] (0,0) -- (-2,0) node[anchor=north west,xshift = -20pt] {$-\|\vx\|\ve_1$};
+	\end{tikzpicture}
+\end{figure*}
+
+\subsection*{Givensova triangularizace}
+
+Další možnost jak pomocí OG matice zobrazit vektor do směru je rotace. Této matici se říká \textbf{Givensova rotace}.
+
+\begin{figure*}[ht]
+	\centering
+	\begin{tikzpicture}
+		% x-axis
+		\draw (-3,0) -- (3,0);
+		% y-axis
+		\draw (0,-1) -- (0,2);
+		% vector x, angle 40 degs
+		\draw[vector] (0,0) -- ({2*cos(40)},{2*sin(40)}) node[anchor=south east] {$\vx$};
+		% target vector
+		\draw[vector] (0,0) -- (2,0) node[anchor=north west,xshift = -15pt] {$\mG \vx$};
+		% arc for the rotation
+		\draw[vector,blue,dashed] ({2*cos(40)},{2*sin(40)}) arc (40:0:2);
+		% arc for the angle
+		\draw[->,>=stealth] (0.8,0) arc (0:40:0.8) node[anchor=north west,xshift = 5pt,yshift = 3pt] {$\theta$};
+	\end{tikzpicture}
+	\caption*{Givensova rotace}
+\end{figure*}
+
+\noindent V prostoru $\R^m$, $c = \cos\theta = \frac{x_i}{\sqrt{x_i^2 + x_j^2}}$, $s = \sin\theta = \frac{x_j}{\sqrt{x_i^2 + x_j^2}}$:
+
+\[ \mG(x_i,x_j) = \begin{pmatrix} 1      &        &          &        &         &        &    \\ & \ddots &          &        &         &        &    \\ &        &  c       &        &  s      &        &    \\ &        &          & \ddots &         &        &    \\ &        &  -s      &        &  c      &        &    \\ &        &          &        &         & \ddots &    \\ &        &          &        &         &        & 1 \end{pmatrix} \]
+
+\noindent Givensova triangularizace postupuje následovně.
+
+\begin{gather*}
+	  \underset{\mA}{\left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \end{array}} \right) }
+	\xrightarrow{\mQ_1}
+	\underset{\mQ_1 \mA}{ \left({\begin{array}{*{20}c} \bullet  & \bullet  & \bullet  \\ \mathbf{0}  & \bullet  & \bullet  \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \end{array}} \right) }
+	\xrightarrow{\mQ_2}
+	\underset{\mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \bullet  & \bullet  & \bullet  \\ 0        & \circ    & \circ    \\ \mathbf{0}  & \bullet  & \bullet  \\ \circ    & \circ    & \circ    \\ \circ    & \circ    & \circ    \\ \end{array}} \right) }
+	\xrightarrow{\mQ_3}
+	\underset{\mQ_3 \mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \bullet  & \bullet  & \bullet  \\ 0       & \circ    & \circ    \\ 0       & \circ    & \circ    \\ \mathbf{0}  & \bullet  & \bullet  \\ \circ    & \circ    & \circ    \\ \end{array}} \right) }
+	\\
+	\xrightarrow{\mQ_4}
+	\underset{\mQ_4 \mQ_3 \mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \bullet  & \bullet  & \bullet  \\ 0       & \circ    & \circ    \\ 0       & \circ    & \circ    \\ 0       & \circ    & \circ    \\ \mathbf{0}  & \bullet  & \bullet  \\ \end{array}} \right) }
+	\xrightarrow{\mQ_5}
+	\underset{\mQ_5 \mQ_4 \mQ_3 \mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ \mathbf{0}  & \bullet  & \bullet  \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ 0       & \circ    & \circ    \\ 0       & \circ    & \circ    \\ \end{array}} \right) }
+	\xrightarrow{\mQ_6}
+	\underset{\mQ_6 \mQ_5 \mQ_4 \mQ_3 \mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ \mathbf{0}  & \bullet  & \bullet  \\ 0       & 0        & \circ    \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ 0       & \circ    & \circ    \\ \end{array}} \right) }
+	\ldots
+	\xrightarrow{\mQ_k}
+	\underset{\mQ_k \dots \mQ_2 \mQ_1 \mA}{ \left({\begin{array}{*{20}c} \circ    & \circ    & \circ    \\ 0       & \circ    & \circ    \\ \mathbf{0}  & \mathbf{0}  & \bullet  \\ 0       & 0        & 0        \\ \mathbf{0}  & \mathbf{0}  & \mathbf{0}  \\ \end{array}} \right) }
+\end{gather*}
+
+\begin{algorithm*}
+	\caption{Givensova triangularizace}
+	\begin{algorithmic}
+		\FOR{$i = 1, \dots, n$}
+		\FOR{$j = i+1, \dots, m$}
+		\STATE Najdi $\mG(a_{i,i},a_{j,i})$
+		\STATE $\mA_{[i,j],i:n} = \mG \mA_{[i,j],i:n}$
+		\ENDFOR
+		\ENDFOR
+	\end{algorithmic}
+\end{algorithm*}
 
 \subsection*{Pozitivně definitní matice}
 
@@ -172,6 +338,129 @@ Buď $\mS \in \R^{n,n}$ symetrická matice. Potom platí následující:
 	\item Všechna vlastní čísla matice $\mS$ jsou reálná.
 	\item Je-li matice $\mS$ pozitivně semidefinitní, jsou vlastní čísla nezáporná.
 	\item Je-li matice $\mS$ pozitivně definitní, jsou vlastní čísla kladná.
+\end{enumerate}
+
+\subsection*{Rayleighův podíl}
+
+\textbf{Rayleighův podíl} vektoru $\vy \in \R^{n}, \vy \ne \theta$ je číslo
+
+\[ r(\vy) = \frac{\vy^T \mA \vy}{\vy^T\vy}. \]
+
+\noindent Nechť $\vx$ je vlastní vektor matice $\mA$ příslušný vlastnímu číslu $\lambda$,
+neboli platí
+
+\[ \mA \vx = \lambda \vx. \]
+
+\noindent Pak platí $r(\vx) = \lambda$.
+
+\subsection*{Mocninná metoda}
+
+Matice $\mA$ \textbf{musí být symetrická}.
+
+\vspace{0.5em}
+
+\begin{algorithmic}
+	\STATE $\vv^{(0)} = \ \mbox{nějaký vektor takový, že} \ \|\vv^{(0)}\| = 1$
+	\FOR {$k = 1, 2, \ldots$ }
+	\STATE $\vw = \mA\vv^{(k-1)}$
+	\STATE $\vv^{(k)} = \vw / \|\vw\|$
+	\STATE $\lambda^{(k)} = (\vv^{(k)})^T \mA\vv^{(k)}$
+	\ENDFOR
+\end{algorithmic}
+
+\vspace{0.5em}
+
+\noindent $\lambda^{(k)}$ konverguje k dominantnímu (největšímu) vl. číslu $\mA$ a $\vv^{(k)}$ konverguje k příslušnému vl. vektoru.
+
+\subsection*{QR algoritmus pro výpočet vlastních čísel}
+
+Matice $\mA$ \textbf{musí být symetrická}.
+
+\vspace{0.5em}
+
+\begin{algorithmic}
+	\STATE $\mA^{(0)} = \mA$
+	\FOR {$k = 1, 2, \ldots$ }
+	\STATE $\mQ^{(k)}\mR^{(k)} = \mA^{(k-1)}$
+	\STATE $\mA^{(k)} = \mR^{(k)}\mQ^{(k)}$
+	\ENDFOR
+\end{algorithmic}
+
+\vspace{0.5em}
+
+\noindent Pro symetrické matice posloupnost $\mA^{(0)}, \mA^{(1)}, \mA^{(2)}, \dots$ konverguje k diagonální matici, která je \emph{podobná} $\mA$ a tudíž má stejná vlastní čísla.
+
+\subsection*{Příprava matice pomocí ortogonálních transformací}
+
+
+Najdeme tedy Householderův reflektor tak, že
+
+\[ \mQ_1 = \left( {\begin{array}{*{20}c} 1 &    \\ & \mF \end{array} } \right), \]
+
+\noindent dostáváme
+
+\[ \mQ_1\mA\mQ_1 = \underbrace{\pmat{cccc}{ \circ &  \circ  &  \circ  &  \circ \\ \alpha_1 &  \bullet  &  \bullet  &  \bullet \\ 0 &  \bullet  &  \bullet &  \bullet  \\ 0 &  \bullet  &  \bullet &  \bullet \\}}_{\mQ_1\mA} \mQ_1 = \underbrace{\pmat{cccc}{ \circ    &  \bullet  &  \bullet  &  \bullet \\ \alpha_1 &  \bullet  &  \bullet  &  \bullet \\ 0        &  \bullet  &  \bullet  &  \bullet \\ 0        &  \bullet  &  \bullet  &  \bullet \\ }}_{\mQ_1\mA\mQ_1}. \]
+
+\noindent Analogicky vytvoříme matici $\mQ_2$. Dostáváme
+
+\[ \mQ_2\mQ_1\mA\mQ_1\mQ_2 = \mQ_2 \underbrace{\pmat{cccc}{ \circ    &  \circ    &  \circ    &  \circ \\ \alpha_1 &  \circ    &  \circ    &  \circ \\ 0        &  \circ    &  \circ    &  \circ \\ 0        &  \circ    &  \circ    &  \circ \\}}_{\mQ_1\mA\mQ_1} \mQ_2 = \underbrace{\pmat{cccc}{ \circ    &  \circ    &  \bullet  &  \bullet \\ \alpha_1 &  \circ    &  \bullet  &  \bullet \\ 0        &  \alpha_2 &  \bullet  &  \bullet \\ 0        &  0        &  \bullet  &  \bullet \\}}_{\mQ_2\mQ_1\mA\mQ_1\mQ_2} \]
+
+\noindent Tímto postupem jsme dospěli k matici v tzv. \emph{Hessenbergově tvaru}.
+
+\noindent Matici $\mA$ jsme upravili jako
+
+\[ \mQ^T\mA\mQ = \mathbf{H}, \]
+
+\noindent neboli jsme našli faktorizaci ve tvaru
+
+\[ \mA = \mQ \mathbf{H} \mQ^T. \]
+
+\noindent Z tohoto zápisu vyplývá, že matice $\mA$ a $\mathbf{H}$ jsou si podobné a tudíž mají stejná vlastní čísla.
+
+\subsection*{Dvě fáze výpočtu vlastních čísel}
+
+\begin{enumerate}
+	\item Převedení matice do Hessenbergova tvaru pomocí Householderovy redukce (přímý algoritmus).
+	\item Převedení matice z Hessenbergova tvaru do horního trojúhelníkového tvaru pomocí iteračního algoritmu, např. QR algoritmu.
+\end{enumerate}
+
+\subsection*{Redukovaný SVD rozklad}
+
+Redukovaným SVD rozkladem matice $\mA\in\R^{m,n}$, $m \ge n$, se myslí její zápis jako součin matic
+
+\[ \mA = \hat{\mU} \hat{\mSigma} \mV^T, \]
+
+\noindent kde $\hat{\mU} \in \R^{m,n}$ je matice s ortonormálními sloupci, $\hat{\mSigma} \in \R^{n,n}$ je diagonální matice, a $\mV \in \R^{n,n}$ je ortogonální matice.
+Na diagonále $\hat{\mSigma}$ je $p = \min(m,n)$ seřazených \emph{singulárních čísel} $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_p \ge 0$.
+
+\subsection*{Úplný SVD rozklad}
+
+Úplným (kompletním) SVD rozkladem matice $\mA\in\R^{m,n}$ se myslí její zápis jako součin matic
+
+\[ \mA = \mU \mSigma \mV^T, \]
+
+\noindent kde $\mU \in \R^{m,m}$ je ortogonální matice, $\mSigma \in \R^{m,n}$ je diagonální matice, a $\mV \in \R^{n,n}$ je ortogonální matice.
+Na diagonále $\mSigma$ je $p = \min(m,n)$ seřazených \emph{singulárních čísel} $\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_p \ge 0$.
+
+\subsection*{Existence a jednoznačnost SVD rozkladu}
+
+Každá matice $\mA \in \R^{m,n}$ má (úplný) SVD rozklad. Singulární čísla $\{\sigma_j\}$ jsou určena jednoznačně a pokud je $\mA$ čtvercová a singulární čísla $\{\sigma_j\}$ jsou různá, levé a pravé singulární vektory $\{\vu_j\}$ a $\{\vv_j\}$ jsou určeny jednoznačně až na koeficient $\pm 1$.
+
+\subsection*{SVD rozklad vs. rozklad pomocí vlastních čísel}
+
+Nenulová singulární čísla $\mA \in \R^{m,n}$ jsou rovna odmocninám z nenulových vlastních čísel $\mA^T\mA$, resp. $\mA\mA^T$.
+
+\subsection*{SVD rozklad a vlastnosti matic}
+
+Nechť $\mA \in \R^{m,n}$, $p = \min(m,n)$, a $r \le p$ je počet nenulových singulárních čísel $\mA$. Pak platí následující tvrzení.
+
+\begin{enumerate}
+	\item $h(\mA) = r$
+	\item Lineární obal sloupců $\mA$ je roven $\langle \vu_1,\dots,\vu_r\rangle$.
+	Podprostor řešení soustavy $\{\vx \in \R^n, \mA \vx = \theta\}$ je roven $\langle \vv_{r+1},\dots,\vv_{n}\rangle$.
+	\item Pro každou matici $\mA \in \R^{m,n}$ a ortogonální matici $\mQ \in \R^{m,m}$ platí
+		\[ \|\mQ\mA\|_2 = \|\mA\|_2, \quad \|\mQ\mA\|_F = \|\mA\|_F. \]
+	\item \[ \|\mA\|_2 = \sigma_1 \quad \mbox{a} \quad \|\mA\|_F = \sqrt{\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2}. \]
 \end{enumerate}
 
 \pagebreak

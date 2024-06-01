@@ -16,8 +16,14 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{amsthm}
+\usepackage{algorithm, algorithmic}
+\usepackage{tikz}
+\usepackage{caption}
+% \usepackage{algpseudocode}
 
 % custom kalvoda commands
+
+\DeclareMathOperator{\sgn}{sgn}
 
 \newcommand{\clr}[2]{\color{#1}{#2}}
 \newcommand{\proj}{\text{proj}}
@@ -30,6 +36,7 @@
 \newcommand{\vc}{\mathbf{c}}
 \newcommand{\ve}{\mathbf{e}}
 \newcommand{\vu}{\mathbf{u}}
+\newcommand{\vq}{\mathbf{q}}
 \newcommand{\vx}{\mathbf{x}}
 \newcommand{\vw}{\mathbf{w}}
 \newcommand{\vy}{\mathbf{y}}
@@ -39,14 +46,43 @@
 \newcommand{\mB}{\mathbf{B}}
 \newcommand{\mD}{\mathbf{D}}
 \newcommand{\mE}{\mathbf{E}}
+\newcommand{\mF}{\mathbf{F}}
 \newcommand{\mM}{\mathbf{M}}
+\newcommand{\mV}{\mathbf{V}}
+\newcommand{\mSigma}{\mathbf{\Sigma}}
 \newcommand{\mU}{\mathbf{U}}
 \newcommand{\mL}{\mathbf{L}}
 \newcommand{\mP}{\mathbf{P}}
+\newcommand{\mG}{\mathbf{G}}
 \newcommand{\mQ}{\mathbf{Q}}
 \newcommand{\mR}{\mathbf{R}}
 \newcommand{\mS}{\mathbf{S}}
 \newcommand{\ssubset}{\subset \subset}
+\newcommand{\pmat}[2]{\left( \begin{array}{#1} #2 \end{array} \right)}
+
+% Vypnutí číslování algoritmů
+\renewcommand{\thealgorithm}{}
+
+\tikzset{
+	vector/.style={
+		->,                   % Arrow tip
+		thick,          % Line thickness
+		color=black,            % Line color
+		% shorten <=2pt,        % Shorten the line at the start
+		% shorten >=2pt,        % Shorten the line at the end
+		% solid,               % Dashed line
+		>=stealth             % Arrow tip style
+	}
+}
+
+\tikzset{
+	mirror/.style={
+		dashed,               % Dashed line
+		% ultra thick,          % Line thickness
+		color=gray,           % Line color
+		dash pattern=on 5pt off 3pt  % Custom dash pattern
+	}
+}
 
 \begin{document}
 
@@ -62,5 +98,6 @@
 \import{sections/}{5_geometrie_rn.tex}
 \import{sections/}{6_numerical.tex}
 \import{sections/}{7_matrix_decomp.tex}
+\import{sections/}{9_misc.tex}
 
 \end{document}
